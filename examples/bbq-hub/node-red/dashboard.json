@@ -1,0 +1,2766 @@
+[
+    {
+        "id": "d108b042339d78a6",
+        "type": "tab",
+        "label": "bbq and pid",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "063352f3bdc1fd37",
+        "type": "tab",
+        "label": "imax",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "aa48fa7dfbd89169",
+        "type": "tab",
+        "label": "food and rates",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "bb7206.c0582df8",
+        "type": "server",
+        "name": "Home Assistant",
+        "addon": true,
+        "rejectUnauthorizedCerts": true,
+        "ha_boolean": "",
+        "connectionDelay": false,
+        "cacheJson": false,
+        "heartbeat": false,
+        "heartbeatInterval": "",
+        "statusSeparator": "",
+        "enableGlobalContextStore": false
+    },
+    {
+        "id": "20666ebf58c1d1e7",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-dark",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "reset": false
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#097479",
+                    "value": "#097479",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#097479",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#0eb8c0",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#555555",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#eeeeee",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#097479",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "a45d3cb68470a1fb",
+        "type": "ui_tab",
+        "name": "BBQ",
+        "icon": "mi-outdoor_grill",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "032c2145eea86065",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "295ba18241dbd366",
+        "type": "ui_group",
+        "name": "Overview",
+        "tab": "a45d3cb68470a1fb",
+        "order": 1,
+        "disp": true,
+        "width": "7",
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "3534e43aeed9ef48",
+        "type": "ui_tab",
+        "name": "Settings",
+        "icon": "settings",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "250d45262f6e60aa",
+        "type": "ui_group",
+        "name": "PID Block",
+        "tab": "3534e43aeed9ef48",
+        "order": 2,
+        "disp": true,
+        "width": 7,
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "cd02f95415537576",
+        "type": "ui_group",
+        "name": "Visualization",
+        "tab": "3534e43aeed9ef48",
+        "order": 3,
+        "disp": true,
+        "width": 7,
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "7977ac202bfc63e0",
+        "type": "ui_spacer",
+        "z": "d108b042339d78a6",
+        "name": "spacer",
+        "group": "250d45262f6e60aa",
+        "order": 4,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "efb8b9f75857eea9",
+        "type": "ui_spacer",
+        "z": "d108b042339d78a6",
+        "name": "spacer",
+        "group": "250d45262f6e60aa",
+        "order": 8,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "e52aedd44d83440c",
+        "type": "ui_spacer",
+        "z": "d108b042339d78a6",
+        "name": "spacer",
+        "group": "250d45262f6e60aa",
+        "order": 11,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "3114dc1af73f7ac2",
+        "type": "ui_spacer",
+        "z": "d108b042339d78a6",
+        "name": "spacer",
+        "group": "250d45262f6e60aa",
+        "order": 16,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "b09b35dc125b1066",
+        "type": "ui_spacer",
+        "z": "d108b042339d78a6",
+        "name": "spacer",
+        "group": "cd02f95415537576",
+        "order": 3,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "1a8b87ec44067c1c",
+        "type": "ui_group",
+        "name": "Rates",
+        "tab": "a45d3cb68470a1fb",
+        "order": 2,
+        "disp": true,
+        "width": "7",
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "3fc81a8bbfe019f3",
+        "type": "ui_spacer",
+        "z": "aa48fa7dfbd89169",
+        "name": "spacer",
+        "group": "295ba18241dbd366",
+        "order": 2,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "e0fd9154a0254924",
+        "type": "ui_spacer",
+        "z": "aa48fa7dfbd89169",
+        "name": "spacer",
+        "group": "295ba18241dbd366",
+        "order": 7,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "7975abe2e480559e",
+        "type": "ui_spacer",
+        "z": "aa48fa7dfbd89169",
+        "name": "spacer",
+        "group": "295ba18241dbd366",
+        "order": 12,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "d0bace89496bd2fe",
+        "type": "ui_spacer",
+        "z": "aa48fa7dfbd89169",
+        "name": "spacer",
+        "group": "1a8b87ec44067c1c",
+        "order": 2,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "1d7344ec94f1fa27",
+        "type": "ui_spacer",
+        "z": "aa48fa7dfbd89169",
+        "name": "spacer",
+        "group": "1a8b87ec44067c1c",
+        "order": 3,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "1a9b09dd94134a97",
+        "type": "ui_spacer",
+        "z": "aa48fa7dfbd89169",
+        "name": "spacer",
+        "group": "1a8b87ec44067c1c",
+        "order": 9,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "0dac8d9103ca7e21",
+        "type": "ui_spacer",
+        "z": "aa48fa7dfbd89169",
+        "name": "spacer",
+        "group": "1a8b87ec44067c1c",
+        "order": 12,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "7bbee763110857e6",
+        "type": "ui_spacer",
+        "z": "aa48fa7dfbd89169",
+        "name": "spacer",
+        "group": "1a8b87ec44067c1c",
+        "order": 13,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "ba154c23b6bc3ec2",
+        "type": "ui_gauge",
+        "z": "d108b042339d78a6",
+        "name": "",
+        "group": "295ba18241dbd366",
+        "order": 9,
+        "width": 3,
+        "height": 2,
+        "gtype": "gage",
+        "title": "Fan",
+        "label": "%",
+        "format": "{{value | number:2 }}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 690,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "fff02d2f27e90645",
+        "type": "mqtt in",
+        "z": "d108b042339d78a6",
+        "name": "bbqpid_out",
+        "topic": "homeassistant/sensor/4022d8f4f2b8/bbqpid_out",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "032c2145eea86065",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 240,
+        "y": 1000,
+        "wires": [
+            [
+                "ba154c23b6bc3ec2",
+                "f58c40d714e6cfc4",
+                "885af36e42f7814d"
+            ]
+        ]
+    },
+    {
+        "id": "f58c40d714e6cfc4",
+        "type": "ui_chart",
+        "z": "d108b042339d78a6",
+        "name": "",
+        "group": "295ba18241dbd366",
+        "order": 10,
+        "width": 4,
+        "height": 4,
+        "label": "Fan",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 690,
+        "y": 960,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8daaa03cb0e98c3e",
+        "type": "ui_chart",
+        "z": "d108b042339d78a6",
+        "name": "",
+        "group": "295ba18241dbd366",
+        "order": 14,
+        "width": 7,
+        "height": 6,
+        "label": "Temperatures",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "32",
+        "ymax": "375",
+        "removeOlder": "2",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 720,
+        "y": 1080,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4abe3ba477153233",
+        "type": "mqtt in",
+        "z": "d108b042339d78a6",
+        "name": "bbqpid_sp",
+        "topic": "homeassistant/sensor/4022d8f4f2b8/bbqpid_sp",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "032c2145eea86065",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 160,
+        "y": 700,
+        "wires": [
+            [
+                "8daaa03cb0e98c3e",
+                "c4474762566ef349"
+            ]
+        ]
+    },
+    {
+        "id": "643f929ad692fc50",
+        "type": "mqtt in",
+        "z": "d108b042339d78a6",
+        "name": "cyberq_cook/temperature",
+        "topic": "homeassistant/climate/4022d8f4f2b8/cyberq_cook/temperature",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "032c2145eea86065",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 330,
+        "y": 560,
+        "wires": [
+            [
+                "8daaa03cb0e98c3e",
+                "6c03541947772888"
+            ]
+        ]
+    },
+    {
+        "id": "5799cb49e73b88d3",
+        "type": "mqtt out",
+        "z": "d108b042339d78a6",
+        "name": "temp set",
+        "topic": "homeassistant/climate/4022d8f4f2b8/cyberq_cook/temperature/set",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "032c2145eea86065",
+        "x": 940,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "1f6d78b25ac015ec",
+        "type": "ui_text",
+        "z": "d108b042339d78a6",
+        "d": true,
+        "group": "295ba18241dbd366",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Current",
+        "format": "{{msg.payload | number:1}} °F",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 700,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "8e95a04038522e6e",
+        "type": "mqtt in",
+        "z": "d108b042339d78a6",
+        "name": "cyberq_cook/mode",
+        "topic": "homeassistant/climate/4022d8f4f2b8/cyberq_cook/mode",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "032c2145eea86065",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 310,
+        "y": 480,
+        "wires": [
+            [
+                "2ec99f27cd1855b6"
+            ]
+        ]
+    },
+    {
+        "id": "f4f2d38f80807e54",
+        "type": "mqtt out",
+        "z": "d108b042339d78a6",
+        "name": "mode set",
+        "topic": "homeassistant/climate/4022d8f4f2b8/cyberq_cook/mode/set",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "032c2145eea86065",
+        "x": 940,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "2ec99f27cd1855b6",
+        "type": "ui_switch",
+        "z": "d108b042339d78a6",
+        "name": "",
+        "label": "Enabled",
+        "tooltip": "",
+        "group": "295ba18241dbd366",
+        "order": 8,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "heat",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "off",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 700,
+        "y": 480,
+        "wires": [
+            [
+                "f4f2d38f80807e54"
+            ]
+        ]
+    },
+    {
+        "id": "11eaa6debc8e1508",
+        "type": "ui_gauge",
+        "z": "d108b042339d78a6",
+        "name": "",
+        "group": "295ba18241dbd366",
+        "order": 4,
+        "width": 3,
+        "height": 2,
+        "gtype": "gage",
+        "title": "Temperature",
+        "label": "°F",
+        "format": "{{value | number:1 }}",
+        "min": "32",
+        "max": "375",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 710,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "ef2017eddda84fc4",
+        "type": "mqtt in",
+        "z": "d108b042339d78a6",
+        "name": "cyberq_cook/current_temperature",
+        "topic": "homeassistant/climate/4022d8f4f2b8/cyberq_cook/current_temperature",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "032c2145eea86065",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 360,
+        "y": 400,
+        "wires": [
+            [
+                "11eaa6debc8e1508",
+                "d2e667dae42970eb",
+                "8daaa03cb0e98c3e",
+                "1f6d78b25ac015ec",
+                "860ae20792022538"
+            ]
+        ]
+    },
+    {
+        "id": "18c672a0c0f0392b",
+        "type": "poll-state",
+        "z": "d108b042339d78a6",
+        "name": "",
+        "server": "bb7206.c0582df8",
+        "version": 2,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "updateinterval": "60",
+        "updateIntervalType": "num",
+        "updateIntervalUnits": "seconds",
+        "outputinitially": false,
+        "outputonchanged": true,
+        "entity_id": "climate.cyberq_cook",
+        "state_type": "str",
+        "halt_if": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 1,
+        "x": 270,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d2e667dae42970eb",
+        "type": "ui_chart",
+        "z": "d108b042339d78a6",
+        "name": "",
+        "group": "295ba18241dbd366",
+        "order": 5,
+        "width": 4,
+        "height": 4,
+        "label": "Temperature",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm",
+        "interpolate": "bezier",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 710,
+        "y": 720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "334816db0f0237a4",
+        "type": "ui_gauge",
+        "z": "d108b042339d78a6",
+        "name": "",
+        "group": "295ba18241dbd366",
+        "order": 6,
+        "width": 3,
+        "height": 2,
+        "gtype": "gage",
+        "title": "Difference",
+        "label": "°F",
+        "format": "{{value | number:1 }}",
+        "min": "-60",
+        "max": "60",
+        "colors": [
+            "#6b6be1",
+            "#b0b0b0",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": true,
+        "className": "",
+        "x": 710,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "41b3082b34e07d14",
+        "type": "ui_gauge",
+        "z": "d108b042339d78a6",
+        "name": "",
+        "group": "295ba18241dbd366",
+        "order": 11,
+        "width": 3,
+        "height": 2,
+        "gtype": "gage",
+        "title": "Action",
+        "label": "%",
+        "format": "{{value | number:2 }}",
+        "min": "-100",
+        "max": "100",
+        "colors": [
+            "#e6e600",
+            "#00b500",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": true,
+        "className": "",
+        "x": 690,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "cecaa5a1b31da7a0",
+        "type": "mqtt in",
+        "z": "d108b042339d78a6",
+        "name": "bbqpid_i",
+        "topic": "homeassistant/sensor/4022d8f4f2b8/bbqpid_i",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "032c2145eea86065",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 280,
+        "y": 1660,
+        "wires": [
+            [
+                "ca09cab697b2a0bb",
+                "18e865400c3d8778"
+            ]
+        ]
+    },
+    {
+        "id": "fb1eed8164b50b7f",
+        "type": "function",
+        "z": "d108b042339d78a6",
+        "name": "sum",
+        "func": "context.data = context.data || {};\ncontext.data[msg.topic] = msg.payload;\n\nvar n = 0;\nfor (const topic in context.data) {\n    n = n + Number(context.data[topic])\n}\n\nreturn {payload: n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 1260,
+        "wires": [
+            [
+                "41b3082b34e07d14"
+            ]
+        ]
+    },
+    {
+        "id": "3bc0ddb0977a7dd5",
+        "type": "mqtt in",
+        "z": "d108b042339d78a6",
+        "name": "bbqpid_p",
+        "topic": "homeassistant/sensor/4022d8f4f2b8/bbqpid_p",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "032c2145eea86065",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 280,
+        "y": 1540,
+        "wires": [
+            [
+                "fb1eed8164b50b7f",
+                "7b0692edded3a2e7",
+                "18e865400c3d8778"
+            ]
+        ]
+    },
+    {
+        "id": "521102a302e737cf",
+        "type": "mqtt in",
+        "z": "d108b042339d78a6",
+        "name": "bbqpid_d",
+        "topic": "homeassistant/sensor/4022d8f4f2b8/bbqpid_d",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "032c2145eea86065",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 280,
+        "y": 1900,
+        "wires": [
+            [
+                "fb1eed8164b50b7f",
+                "8dc453a0be95fc60",
+                "18e865400c3d8778"
+            ]
+        ]
+    },
+    {
+        "id": "860ae20792022538",
+        "type": "function",
+        "z": "d108b042339d78a6",
+        "name": "sum",
+        "func": "context.data = context.data || {};\ncontext.data[msg.topic] = msg.payload;\n\nvar n = 0;\nfor (const topic in context.data) {\n    n = n + Number(context.data[topic])\n}\n\nreturn {payload: n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 700,
+        "wires": [
+            [
+                "334816db0f0237a4"
+            ]
+        ]
+    },
+    {
+        "id": "6956c6c1fdee94b5",
+        "type": "mqtt in",
+        "z": "d108b042339d78a6",
+        "name": "bbqpid_ki",
+        "topic": "homeassistant/number/4022d8f4f2b8/bbqpid_ki",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "032c2145eea86065",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 280,
+        "y": 1720,
+        "wires": [
+            [
+                "7f32d9e84573c780"
+            ]
+        ]
+    },
+    {
+        "id": "377207ef929b30a8",
+        "type": "mqtt in",
+        "z": "d108b042339d78a6",
+        "name": "bbqpid_kp",
+        "topic": "homeassistant/number/4022d8f4f2b8/bbqpid_kp",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "032c2145eea86065",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 280,
+        "y": 1600,
+        "wires": [
+            [
+                "c27191fe38bbc9a8"
+            ]
+        ]
+    },
+    {
+        "id": "d30bcaebe1a70a2b",
+        "type": "mqtt in",
+        "z": "d108b042339d78a6",
+        "name": "bbqpid_kd",
+        "topic": "homeassistant/number/4022d8f4f2b8/bbqpid_kd",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "032c2145eea86065",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 280,
+        "y": 1960,
+        "wires": [
+            [
+                "22d9159c6510a575"
+            ]
+        ]
+    },
+    {
+        "id": "7b0692edded3a2e7",
+        "type": "ui_text",
+        "z": "d108b042339d78a6",
+        "group": "250d45262f6e60aa",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Proportional",
+        "format": "{{msg.payload | number:2}}%",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 730,
+        "y": 1540,
+        "wires": []
+    },
+    {
+        "id": "ca09cab697b2a0bb",
+        "type": "ui_text",
+        "z": "d108b042339d78a6",
+        "group": "250d45262f6e60aa",
+        "order": 10,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Integral",
+        "format": "{{msg.payload | number:2}}%",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 720,
+        "y": 1660,
+        "wires": []
+    },
+    {
+        "id": "8dc453a0be95fc60",
+        "type": "ui_text",
+        "z": "d108b042339d78a6",
+        "group": "250d45262f6e60aa",
+        "order": 15,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Derivative",
+        "format": "{{msg.payload | number:2}}%",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 720,
+        "y": 1900,
+        "wires": []
+    },
+    {
+        "id": "22d9159c6510a575",
+        "type": "ui_text_input",
+        "z": "d108b042339d78a6",
+        "name": "",
+        "label": "Kd",
+        "tooltip": "",
+        "group": "250d45262f6e60aa",
+        "order": 18,
+        "width": 2,
+        "height": 1,
+        "passthru": false,
+        "mode": "text",
+        "delay": "0",
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 710,
+        "y": 1960,
+        "wires": [
+            [
+                "22206a6b369df066"
+            ]
+        ]
+    },
+    {
+        "id": "7f32d9e84573c780",
+        "type": "ui_text_input",
+        "z": "d108b042339d78a6",
+        "name": "",
+        "label": "Ki",
+        "tooltip": "",
+        "group": "250d45262f6e60aa",
+        "order": 14,
+        "width": 2,
+        "height": 1,
+        "passthru": false,
+        "mode": "text",
+        "delay": "0",
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 710,
+        "y": 1720,
+        "wires": [
+            [
+                "0e5bd71aaa540ba1"
+            ]
+        ]
+    },
+    {
+        "id": "c27191fe38bbc9a8",
+        "type": "ui_text_input",
+        "z": "d108b042339d78a6",
+        "name": "",
+        "label": "Kp",
+        "tooltip": "",
+        "group": "250d45262f6e60aa",
+        "order": 9,
+        "width": 2,
+        "height": 1,
+        "passthru": false,
+        "mode": "text",
+        "delay": "0",
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 710,
+        "y": 1600,
+        "wires": [
+            [
+                "1860e0f14abe7def"
+            ]
+        ]
+    },
+    {
+        "id": "1860e0f14abe7def",
+        "type": "mqtt out",
+        "z": "d108b042339d78a6",
+        "name": "bbqpid_kp",
+        "topic": "homeassistant/number/4022d8f4f2b8/bbqpid_kp/set",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "032c2145eea86065",
+        "x": 950,
+        "y": 1600,
+        "wires": []
+    },
+    {
+        "id": "0e5bd71aaa540ba1",
+        "type": "mqtt out",
+        "z": "d108b042339d78a6",
+        "name": "bbqpid_ki",
+        "topic": "homeassistant/number/4022d8f4f2b8/bbqpid_ki/set",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "032c2145eea86065",
+        "x": 940,
+        "y": 1720,
+        "wires": []
+    },
+    {
+        "id": "22206a6b369df066",
+        "type": "mqtt out",
+        "z": "d108b042339d78a6",
+        "name": "bbqpid_kd",
+        "topic": "homeassistant/number/4022d8f4f2b8/bbqpid_kd/set",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "032c2145eea86065",
+        "x": 950,
+        "y": 1960,
+        "wires": []
+    },
+    {
+        "id": "fba1e0175f288b17",
+        "type": "mqtt in",
+        "z": "d108b042339d78a6",
+        "name": "bbqpid_imax",
+        "topic": "homeassistant/number/4022d8f4f2b8/bbqpid_imax",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "032c2145eea86065",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 290,
+        "y": 1780,
+        "wires": [
+            [
+                "7f04b741e6018428"
+            ]
+        ]
+    },
+    {
+        "id": "cfd2e20f4539e166",
+        "type": "mqtt in",
+        "z": "d108b042339d78a6",
+        "name": "bbqpid_imin",
+        "topic": "homeassistant/number/4022d8f4f2b8/bbqpid_imin",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "032c2145eea86065",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 290,
+        "y": 1840,
+        "wires": [
+            [
+                "d9e1b176760427a4"
+            ]
+        ]
+    },
+    {
+        "id": "7f04b741e6018428",
+        "type": "ui_text_input",
+        "z": "d108b042339d78a6",
+        "name": "",
+        "label": "max",
+        "tooltip": "",
+        "group": "250d45262f6e60aa",
+        "order": 13,
+        "width": 2,
+        "height": 1,
+        "passthru": false,
+        "mode": "text",
+        "delay": "0",
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 710,
+        "y": 1780,
+        "wires": [
+            [
+                "a0105e233ddb45d7"
+            ]
+        ]
+    },
+    {
+        "id": "d9e1b176760427a4",
+        "type": "ui_text_input",
+        "z": "d108b042339d78a6",
+        "name": "",
+        "label": "min",
+        "tooltip": "",
+        "group": "250d45262f6e60aa",
+        "order": 12,
+        "width": 2,
+        "height": 1,
+        "passthru": false,
+        "mode": "text",
+        "delay": "0",
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 710,
+        "y": 1840,
+        "wires": [
+            [
+                "0a87b509815430dc"
+            ]
+        ]
+    },
+    {
+        "id": "a0105e233ddb45d7",
+        "type": "mqtt out",
+        "z": "d108b042339d78a6",
+        "name": "bbqpid_imax",
+        "topic": "homeassistant/number/4022d8f4f2b8/bbqpid_imax/set",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "032c2145eea86065",
+        "x": 950,
+        "y": 1780,
+        "wires": []
+    },
+    {
+        "id": "0a87b509815430dc",
+        "type": "mqtt out",
+        "z": "d108b042339d78a6",
+        "name": "bbqpid_imin",
+        "topic": "homeassistant/number/4022d8f4f2b8/bbqpid_imin/set",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "032c2145eea86065",
+        "x": 950,
+        "y": 1840,
+        "wires": []
+    },
+    {
+        "id": "a81183d42ecd79aa",
+        "type": "ui_text_input",
+        "z": "d108b042339d78a6",
+        "name": "",
+        "label": "alpha",
+        "tooltip": "",
+        "group": "250d45262f6e60aa",
+        "order": 17,
+        "width": 2,
+        "height": 1,
+        "passthru": false,
+        "mode": "text",
+        "delay": "0",
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 710,
+        "y": 2020,
+        "wires": [
+            [
+                "7396d176af43b43f"
+            ]
+        ]
+    },
+    {
+        "id": "12975916a2aa16a2",
+        "type": "mqtt in",
+        "z": "d108b042339d78a6",
+        "name": "bbqpid_alpha",
+        "topic": "homeassistant/number/4022d8f4f2b8/bbqpid_alpha",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "032c2145eea86065",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 290,
+        "y": 2020,
+        "wires": [
+            [
+                "a81183d42ecd79aa"
+            ]
+        ]
+    },
+    {
+        "id": "7396d176af43b43f",
+        "type": "mqtt out",
+        "z": "d108b042339d78a6",
+        "name": "bbqpid_alpha",
+        "topic": "homeassistant/number/4022d8f4f2b8/bbqpid_alpha/set",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "032c2145eea86065",
+        "x": 960,
+        "y": 2020,
+        "wires": []
+    },
+    {
+        "id": "18e865400c3d8778",
+        "type": "ui_chart",
+        "z": "d108b042339d78a6",
+        "name": "",
+        "group": "cd02f95415537576",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "outputs",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "auto",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 720,
+        "y": 2080,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "14e2f945b688f5f4",
+        "type": "ui_chart",
+        "z": "d108b042339d78a6",
+        "name": "",
+        "group": "cd02f95415537576",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "inputs",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "auto",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 710,
+        "y": 2140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "53c52b653cdbea65",
+        "type": "mqtt in",
+        "z": "d108b042339d78a6",
+        "name": "bbqpid_sp",
+        "topic": "homeassistant/sensor/4022d8f4f2b8/bbqpid_sp",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "032c2145eea86065",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 280,
+        "y": 2320,
+        "wires": [
+            [
+                "14e2f945b688f5f4",
+                "e754ae1fc7cb3881",
+                "f5fb0b73f8d53bfa"
+            ]
+        ]
+    },
+    {
+        "id": "aeb87d72db7c1ee4",
+        "type": "mqtt in",
+        "z": "d108b042339d78a6",
+        "name": "bbqpid_pv",
+        "topic": "homeassistant/sensor/4022d8f4f2b8/bbqpid_pv",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "032c2145eea86065",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 280,
+        "y": 2260,
+        "wires": [
+            [
+                "14e2f945b688f5f4",
+                "0f8e5cd5eb82ab68",
+                "41a5b9815204161e"
+            ]
+        ]
+    },
+    {
+        "id": "e754ae1fc7cb3881",
+        "type": "ui_text",
+        "z": "d108b042339d78a6",
+        "group": "250d45262f6e60aa",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Setpoint",
+        "format": "{{msg.payload | number: 2}} °F",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 720,
+        "y": 2320,
+        "wires": []
+    },
+    {
+        "id": "30da0ede095a58f4",
+        "type": "ui_text_input",
+        "z": "d108b042339d78a6",
+        "name": "",
+        "label": "temp",
+        "tooltip": "",
+        "group": "250d45262f6e60aa",
+        "order": 6,
+        "width": 2,
+        "height": 1,
+        "passthru": false,
+        "mode": "text",
+        "delay": "0",
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 710,
+        "y": 2380,
+        "wires": [
+            [
+                "b77ac93655089eb1"
+            ]
+        ]
+    },
+    {
+        "id": "44cccfc29f7b1745",
+        "type": "mqtt in",
+        "z": "d108b042339d78a6",
+        "name": "cyberq_cook/temperature",
+        "topic": "homeassistant/climate/4022d8f4f2b8/cyberq_cook/temperature",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "032c2145eea86065",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 330,
+        "y": 2380,
+        "wires": [
+            [
+                "30da0ede095a58f4"
+            ]
+        ]
+    },
+    {
+        "id": "98ca41f981052f31",
+        "type": "mqtt in",
+        "z": "d108b042339d78a6",
+        "name": "bbqpid_spa",
+        "topic": "homeassistant/number/4022d8f4f2b8/bbqpid_spa",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "032c2145eea86065",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 290,
+        "y": 2440,
+        "wires": [
+            [
+                "cc9d917396bcd9fc"
+            ]
+        ]
+    },
+    {
+        "id": "ce2cabebf2ceb8aa",
+        "type": "mqtt out",
+        "z": "d108b042339d78a6",
+        "name": "bbqpid_spa",
+        "topic": "homeassistant/number/4022d8f4f2b8/bbqpid_spa/set",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "032c2145eea86065",
+        "x": 950,
+        "y": 2440,
+        "wires": []
+    },
+    {
+        "id": "cc9d917396bcd9fc",
+        "type": "ui_text_input",
+        "z": "d108b042339d78a6",
+        "name": "",
+        "label": "alpha",
+        "tooltip": "",
+        "group": "250d45262f6e60aa",
+        "order": 5,
+        "width": 2,
+        "height": 1,
+        "passthru": false,
+        "mode": "text",
+        "delay": "0",
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 710,
+        "y": 2440,
+        "wires": [
+            [
+                "ce2cabebf2ceb8aa"
+            ]
+        ]
+    },
+    {
+        "id": "b77ac93655089eb1",
+        "type": "mqtt out",
+        "z": "d108b042339d78a6",
+        "name": "temp set",
+        "topic": "homeassistant/climate/4022d8f4f2b8/cyberq_cook/temperature/set",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "032c2145eea86065",
+        "x": 940,
+        "y": 2380,
+        "wires": []
+    },
+    {
+        "id": "0f8e5cd5eb82ab68",
+        "type": "ui_text",
+        "z": "d108b042339d78a6",
+        "group": "250d45262f6e60aa",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Process Value",
+        "format": "{{msg.payload | number: 2}} °F",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 740,
+        "y": 2260,
+        "wires": []
+    },
+    {
+        "id": "885af36e42f7814d",
+        "type": "ui_text",
+        "z": "d108b042339d78a6",
+        "group": "250d45262f6e60aa",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Output",
+        "format": "{{msg.payload | number:2}}%",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 710,
+        "y": 2200,
+        "wires": []
+    },
+    {
+        "id": "41a5b9815204161e",
+        "type": "link out",
+        "z": "d108b042339d78a6",
+        "name": "antiwindup_pv",
+        "mode": "link",
+        "links": [
+            "1cf3f93903bb81e7"
+        ],
+        "x": 385,
+        "y": 2280,
+        "wires": []
+    },
+    {
+        "id": "f5fb0b73f8d53bfa",
+        "type": "link out",
+        "z": "d108b042339d78a6",
+        "name": "antiwindup_sp",
+        "mode": "link",
+        "links": [
+            "b4553d9b393b1c6f"
+        ],
+        "x": 385,
+        "y": 2340,
+        "wires": []
+    },
+    {
+        "id": "5b4c1e336c9b7eb4",
+        "type": "link in",
+        "z": "d108b042339d78a6",
+        "name": "antiwindup_imax",
+        "links": [
+            "280a81c4b924b763"
+        ],
+        "x": 845,
+        "y": 1800,
+        "wires": [
+            [
+                "a0105e233ddb45d7"
+            ]
+        ]
+    },
+    {
+        "id": "628e765e9697a88b",
+        "type": "ui_button",
+        "z": "d108b042339d78a6",
+        "name": "",
+        "group": "cd02f95415537576",
+        "order": 4,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "clear data",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "[]",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 460,
+        "y": 2080,
+        "wires": [
+            [
+                "14e2f945b688f5f4",
+                "18e865400c3d8778"
+            ]
+        ]
+    },
+    {
+        "id": "89cd3dca100e0aed",
+        "type": "ui_button",
+        "z": "d108b042339d78a6",
+        "name": "",
+        "group": "295ba18241dbd366",
+        "order": 13,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "clear data",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "[]",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 460,
+        "y": 1080,
+        "wires": [
+            [
+                "8daaa03cb0e98c3e",
+                "d2e667dae42970eb",
+                "f58c40d714e6cfc4"
+            ]
+        ]
+    },
+    {
+        "id": "c4474762566ef349",
+        "type": "range",
+        "z": "d108b042339d78a6",
+        "minin": "0",
+        "maxin": "1",
+        "minout": "0",
+        "maxout": "-1",
+        "action": "scale",
+        "round": false,
+        "property": "payload",
+        "name": "",
+        "x": 330,
+        "y": 700,
+        "wires": [
+            [
+                "860ae20792022538"
+            ]
+        ]
+    },
+    {
+        "id": "fb6ba1dbd83e4132",
+        "type": "catch",
+        "z": "d108b042339d78a6",
+        "name": "",
+        "scope": null,
+        "uncaught": false,
+        "x": 340,
+        "y": 2740,
+        "wires": [
+            [
+                "2937adc4216f4f52"
+            ]
+        ]
+    },
+    {
+        "id": "2937adc4216f4f52",
+        "type": "debug",
+        "z": "d108b042339d78a6",
+        "name": "catch",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 530,
+        "y": 2740,
+        "wires": []
+    },
+    {
+        "id": "6c03541947772888",
+        "type": "ui_text_input",
+        "z": "d108b042339d78a6",
+        "name": "",
+        "label": "Target",
+        "tooltip": "",
+        "group": "295ba18241dbd366",
+        "order": 3,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "mode": "text",
+        "delay": "0",
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 690,
+        "y": 560,
+        "wires": [
+            [
+                "5799cb49e73b88d3"
+            ]
+        ]
+    },
+    {
+        "id": "1cf3f93903bb81e7",
+        "type": "link in",
+        "z": "063352f3bdc1fd37",
+        "name": "antiwindup_pv",
+        "links": [
+            "41a5b9815204161e"
+        ],
+        "x": 265,
+        "y": 980,
+        "wires": [
+            [
+                "d249d4111da78496"
+            ]
+        ]
+    },
+    {
+        "id": "b4553d9b393b1c6f",
+        "type": "link in",
+        "z": "063352f3bdc1fd37",
+        "name": "antiwindup_sp",
+        "links": [
+            "f5fb0b73f8d53bfa"
+        ],
+        "x": 445,
+        "y": 920,
+        "wires": [
+            [
+                "bc8c51107afe3211"
+            ]
+        ]
+    },
+    {
+        "id": "280a81c4b924b763",
+        "type": "link out",
+        "z": "063352f3bdc1fd37",
+        "name": "antiwindup_imax",
+        "mode": "link",
+        "links": [
+            "5b4c1e336c9b7eb4"
+        ],
+        "x": 1035,
+        "y": 1260,
+        "wires": []
+    },
+    {
+        "id": "bc8c51107afe3211",
+        "type": "function",
+        "z": "063352f3bdc1fd37",
+        "name": "sum",
+        "func": "context.data = context.data || {};\ncontext.data[msg.topic] = msg.payload;\n\nvar n = 0;\nfor (const topic in context.data) {\n    n = n + Number(context.data[topic])\n}\n\nreturn {payload: n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 980,
+        "wires": [
+            [
+                "76718582bbfaacf4"
+            ]
+        ]
+    },
+    {
+        "id": "d249d4111da78496",
+        "type": "range",
+        "z": "063352f3bdc1fd37",
+        "minin": "0",
+        "maxin": "1",
+        "minout": "0",
+        "maxout": "-1",
+        "action": "scale",
+        "round": false,
+        "property": "payload",
+        "name": "neg",
+        "x": 410,
+        "y": 980,
+        "wires": [
+            [
+                "bc8c51107afe3211"
+            ]
+        ]
+    },
+    {
+        "id": "76718582bbfaacf4",
+        "type": "range",
+        "z": "063352f3bdc1fd37",
+        "minin": "5",
+        "maxin": "30",
+        "minout": "50",
+        "maxout": "0",
+        "action": "clamp",
+        "round": false,
+        "property": "payload",
+        "name": "",
+        "x": 690,
+        "y": 1080,
+        "wires": [
+            [
+                "1e6ba5a8572f9e32"
+            ]
+        ],
+        "inputLabels": [
+            "F"
+        ],
+        "outputLabels": [
+            "%"
+        ]
+    },
+    {
+        "id": "28359033366534ee",
+        "type": "rbe",
+        "z": "063352f3bdc1fd37",
+        "name": "",
+        "func": "rbei",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": false,
+        "property": "payload",
+        "topi": "topic",
+        "x": 890,
+        "y": 1260,
+        "wires": [
+            [
+                "280a81c4b924b763"
+            ]
+        ]
+    },
+    {
+        "id": "1e6ba5a8572f9e32",
+        "type": "delay",
+        "z": "063352f3bdc1fd37",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "5",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 780,
+        "y": 1180,
+        "wires": [
+            [
+                "28359033366534ee"
+            ]
+        ]
+    },
+    {
+        "id": "ee08f0020b154e94",
+        "type": "mqtt in",
+        "z": "aa48fa7dfbd89169",
+        "name": "cyberq_cook/current_temperature",
+        "topic": "homeassistant/climate/4022d8f4f2b8/cyberq_cook/current_temperature",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "032c2145eea86065",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 190,
+        "y": 340,
+        "wires": [
+            [
+                "90cac35271f834f8"
+            ]
+        ]
+    },
+    {
+        "id": "ae58df04a9a557b5",
+        "type": "ui_gauge",
+        "z": "aa48fa7dfbd89169",
+        "name": "",
+        "group": "1a8b87ec44067c1c",
+        "order": 8,
+        "width": 3,
+        "height": 3,
+        "gtype": "gage",
+        "title": "",
+        "label": "F/m",
+        "format": "{{value |number:2}}",
+        "min": "-10",
+        "max": 10,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": true,
+        "className": "",
+        "x": 770,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "bed850d194652727",
+        "type": "ui_chart",
+        "z": "aa48fa7dfbd89169",
+        "name": "",
+        "group": "1a8b87ec44067c1c",
+        "order": 11,
+        "width": 4,
+        "height": 3,
+        "label": "Temp Rate",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 790,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "06b2118000b8b5a1",
+        "type": "smooth",
+        "z": "aa48fa7dfbd89169",
+        "name": "",
+        "property": "payload",
+        "action": "low",
+        "count": "10",
+        "round": "",
+        "mult": "single",
+        "reduce": false,
+        "x": 560,
+        "y": 340,
+        "wires": [
+            [
+                "ae58df04a9a557b5",
+                "bed850d194652727"
+            ]
+        ]
+    },
+    {
+        "id": "90cac35271f834f8",
+        "type": "function",
+        "z": "aa48fa7dfbd89169",
+        "name": "rate",
+        "func": "\ncontext.data = context.data || {};\n\ncontext.data.last = context.data.next\ncontext.data.next = {\n    x: msg.payload,\n    t: new Date().getTime(),\n};\n\nif (!context.data.last) {\n    return [];\n}\n\nvar dx = context.data.next.x - context.data.last.x;\nvar dt = context.data.next.t - context.data.last.t;\n\nif (dt < 1900) {\n    context.data.next = context.data.last\n    return [];\n}\n\nreturn { \n    payload: 60 * 1000 * dx / dt,\n};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 340,
+        "wires": [
+            [
+                "06b2118000b8b5a1"
+            ]
+        ]
+    },
+    {
+        "id": "4fd0af40c92330ab",
+        "type": "ui_button",
+        "z": "aa48fa7dfbd89169",
+        "name": "",
+        "group": "1a8b87ec44067c1c",
+        "order": 14,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "clear data",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "[]",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 560,
+        "y": 400,
+        "wires": [
+            [
+                "bed850d194652727"
+            ]
+        ]
+    },
+    {
+        "id": "c09176b6520dfb6f",
+        "type": "mqtt in",
+        "z": "aa48fa7dfbd89169",
+        "name": "cyberq_food1/current_temperature",
+        "topic": "homeassistant/climate/4022d8f4f2b8/cyberq_food1/current_temperature",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "032c2145eea86065",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 180,
+        "y": 580,
+        "wires": [
+            [
+                "385a7d7d851bc9f1",
+                "c22c98e65e42025e",
+                "36d22e5afa99949c",
+                "ae54224082fc23eb"
+            ]
+        ]
+    },
+    {
+        "id": "9e02cf6974a34ea1",
+        "type": "ui_gauge",
+        "z": "aa48fa7dfbd89169",
+        "name": "",
+        "group": "1a8b87ec44067c1c",
+        "order": 6,
+        "width": 3,
+        "height": 3,
+        "gtype": "gage",
+        "title": "",
+        "label": "F/m",
+        "format": "{{value |number:2}}",
+        "min": "-10",
+        "max": 10,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": true,
+        "className": "",
+        "x": 770,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "daf965494ca8ab9c",
+        "type": "ui_chart",
+        "z": "aa48fa7dfbd89169",
+        "name": "",
+        "group": "1a8b87ec44067c1c",
+        "order": 7,
+        "width": 4,
+        "height": 3,
+        "label": "Food1 Rate",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 790,
+        "y": 740,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "eb1297948d6f1468",
+        "type": "smooth",
+        "z": "aa48fa7dfbd89169",
+        "name": "",
+        "property": "payload",
+        "action": "low",
+        "count": "10",
+        "round": "",
+        "mult": "single",
+        "reduce": false,
+        "x": 580,
+        "y": 680,
+        "wires": [
+            [
+                "9e02cf6974a34ea1",
+                "daf965494ca8ab9c"
+            ]
+        ]
+    },
+    {
+        "id": "385a7d7d851bc9f1",
+        "type": "function",
+        "z": "aa48fa7dfbd89169",
+        "name": "rate",
+        "func": "\ncontext.data = context.data || {};\n\ncontext.data.last = context.data.next\ncontext.data.next = {\n    x: msg.payload,\n    t: new Date().getTime(),\n};\n\nif (!context.data.last) {\n    return [];\n}\n\nvar dx = context.data.next.x - context.data.last.x;\nvar dt = context.data.next.t - context.data.last.t;\n\nif (dt < 1900) {\n    context.data.next = context.data.last\n    return [];\n}\n\nreturn { \n    payload: 60 * 1000 * dx / dt,\n};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 680,
+        "wires": [
+            [
+                "eb1297948d6f1468"
+            ]
+        ]
+    },
+    {
+        "id": "fbc20445435f3798",
+        "type": "ui_button",
+        "z": "aa48fa7dfbd89169",
+        "name": "",
+        "group": "1a8b87ec44067c1c",
+        "order": 10,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "clear data",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "[]",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 580,
+        "y": 740,
+        "wires": [
+            [
+                "daf965494ca8ab9c",
+                "36d22e5afa99949c"
+            ]
+        ]
+    },
+    {
+        "id": "c22c98e65e42025e",
+        "type": "ui_gauge",
+        "z": "aa48fa7dfbd89169",
+        "name": "",
+        "group": "1a8b87ec44067c1c",
+        "order": 1,
+        "width": 3,
+        "height": 2,
+        "gtype": "gage",
+        "title": "",
+        "label": "F",
+        "format": "{{value |number:2}}",
+        "min": "135",
+        "max": "215",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 750,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "36d22e5afa99949c",
+        "type": "ui_chart",
+        "z": "aa48fa7dfbd89169",
+        "name": "",
+        "group": "1a8b87ec44067c1c",
+        "order": 5,
+        "width": 7,
+        "height": 4,
+        "label": "Food1 Temp",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 770,
+        "y": 620,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8480f3921f3e6b69",
+        "type": "mqtt in",
+        "z": "aa48fa7dfbd89169",
+        "name": "cyberq_food1/temperature",
+        "topic": "homeassistant/climate/4022d8f4f2b8/cyberq_food1/temperature",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "032c2145eea86065",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 190,
+        "y": 500,
+        "wires": [
+            [
+                "4845cd0d28b1f7b8"
+            ]
+        ]
+    },
+    {
+        "id": "4845cd0d28b1f7b8",
+        "type": "ui_text_input",
+        "z": "aa48fa7dfbd89169",
+        "name": "",
+        "label": "Target",
+        "tooltip": "",
+        "group": "1a8b87ec44067c1c",
+        "order": 4,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "mode": "text",
+        "delay": "0",
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 510,
+        "y": 500,
+        "wires": [
+            [
+                "6faba37b0089c686"
+            ]
+        ]
+    },
+    {
+        "id": "6faba37b0089c686",
+        "type": "mqtt out",
+        "z": "aa48fa7dfbd89169",
+        "name": "cyberq_food1/temperature",
+        "topic": "homeassistant/climate/4022d8f4f2b8/cyberq_food1/temperature/set",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "032c2145eea86065",
+        "x": 780,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "39b82a62a741ae60",
+        "type": "ui_switch",
+        "z": "aa48fa7dfbd89169",
+        "name": "",
+        "label": "Trigger Enabled",
+        "tooltip": "",
+        "group": "295ba18241dbd366",
+        "order": 15,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "trigger_enabled",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 300,
+        "y": 1080,
+        "wires": [
+            [
+                "54e1082c83e22ecc"
+            ]
+        ]
+    },
+    {
+        "id": "54e1082c83e22ecc",
+        "type": "function",
+        "z": "aa48fa7dfbd89169",
+        "name": "eval trigger",
+        "func": "context.data = context.data || {}\n\ncontext.data[msg.topic] = msg.payload\n\nvar messages = [null, null, { payload: context.data }];\n\n\nif (context.data[\"trigger_enabled\"] != true) {\n    context.data[\"reason\"] = \"disabled\";\n    return messages;\n}\n\nif (parseFloat(context.data[\"current_temperature\"]) < context.data[\"trigger_food1_temperature\"]) {\n    context.data[\"reason\"] = \"cold\";\n    return messages;\n}\n\ncontext.data[\"reason\"] = \"fired\";\n//messages[0] = { payload: false };\nmessages[1] = { payload: context.data[\"trigger_cook_temperature\"] };\n\nreturn messages;\n",
+        "outputs": 3,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 940,
+        "wires": [
+            [
+                "39b82a62a741ae60"
+            ],
+            [
+                "1bb899d99a0253df"
+            ],
+            [
+                "3a407c08c26a4f66"
+            ]
+        ]
+    },
+    {
+        "id": "1bb899d99a0253df",
+        "type": "ui_text",
+        "z": "aa48fa7dfbd89169",
+        "group": "295ba18241dbd366",
+        "order": 18,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "new temp",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 780,
+        "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "c555531f1097d190",
+        "type": "ui_slider",
+        "z": "aa48fa7dfbd89169",
+        "name": "",
+        "label": "Above Food Temp",
+        "tooltip": "",
+        "group": "295ba18241dbd366",
+        "order": 16,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "outs": "end",
+        "topic": "trigger_food1_temperature",
+        "topicType": "str",
+        "min": "32",
+        "max": "375",
+        "step": 1,
+        "className": "",
+        "x": 290,
+        "y": 900,
+        "wires": [
+            [
+                "54e1082c83e22ecc"
+            ]
+        ]
+    },
+    {
+        "id": "284f94b77486c1ba",
+        "type": "ui_slider",
+        "z": "aa48fa7dfbd89169",
+        "name": "",
+        "label": "New Cook Temperature",
+        "tooltip": "",
+        "group": "295ba18241dbd366",
+        "order": 17,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "outs": "end",
+        "topic": "trigger_cook_temperature",
+        "topicType": "str",
+        "min": "32",
+        "max": "375",
+        "step": 1,
+        "className": "",
+        "x": 270,
+        "y": 960,
+        "wires": [
+            [
+                "54e1082c83e22ecc"
+            ]
+        ]
+    },
+    {
+        "id": "ae54224082fc23eb",
+        "type": "change",
+        "z": "aa48fa7dfbd89169",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "current_temperature",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 330,
+        "y": 820,
+        "wires": [
+            [
+                "54e1082c83e22ecc"
+            ]
+        ]
+    },
+    {
+        "id": "20f8df4040d15f97",
+        "type": "catch",
+        "z": "aa48fa7dfbd89169",
+        "name": "",
+        "scope": null,
+        "uncaught": false,
+        "x": 300,
+        "y": 1360,
+        "wires": [
+            [
+                "109546e2dddcc27e"
+            ]
+        ]
+    },
+    {
+        "id": "109546e2dddcc27e",
+        "type": "debug",
+        "z": "aa48fa7dfbd89169",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 1400,
+        "wires": []
+    },
+    {
+        "id": "3a407c08c26a4f66",
+        "type": "ui_text",
+        "z": "aa48fa7dfbd89169",
+        "group": "295ba18241dbd366",
+        "order": 18,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "status",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 750,
+        "y": 1300,
+        "wires": []
+    },
+    {
+        "id": "869bda4c65952ed8",
+        "type": "inject",
+        "z": "aa48fa7dfbd89169",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 500,
+        "y": 1300,
+        "wires": [
+            [
+                "3a407c08c26a4f66",
+                "1bb899d99a0253df"
+            ]
+        ]
+    }
+]

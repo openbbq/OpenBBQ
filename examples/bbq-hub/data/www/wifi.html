@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta name='viewport' content='width=device-width'>
+  <title>WiFi Config | Open BBQ</title>
+  <link rel="stylesheet" href="normalize.css" />
+  <link rel="stylesheet" href="milligram.min.css" />
+</head>
+
+<body>
+  <main class="wrapper">
+    <nav class="navigation">
+      <section class="container">
+        <a href="/" title="Open BBQ">
+          <h2 class="title">Open BBQ</h2>
+        </a>
+      </section>
+    </nav>
+    <section class="container">
+      <h3 class="title">WiFi Config</h3>
+      <form id="wifi">
+        <fieldset>
+          <label for="ssid">SSID</label>
+          <input type="text" placeholder="SSID" id="ssid">
+          <label for="passphrase">Passphrase</label>
+          <input type="password" placeholder="Passphrase" id="passphrase">
+          <button class="button button-primary">Connect</button>
+        </fieldset>
+      </form>
+    </section>
+  </main>
+  <script src="wifi.js"></script>
+</body>
+
+</html>

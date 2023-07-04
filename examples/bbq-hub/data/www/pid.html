@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta name='viewport' content='width=device-width'>
+  <title>PID Config | Open BBQ</title>
+  <link rel="stylesheet" href="normalize.css" />
+  <link rel="stylesheet" href="milligram.min.css" />
+</head>
+
+<body>
+  <main class="wrapper">
+    <nav class="navigation">
+      <section class="container">
+        <a href="/" title="Open BBQ">
+          <h2 class="title">Open BBQ</h2>
+        </a>
+      </section>
+    </nav>
+    <section class="container">
+      <h3 class="title">PID Config</h3>
+      <form>
+        <fieldset>
+          <label for="SPA">Setpoint Alpha</label><input type="text" placeholder="Setpoint Alpha" id="SPA">
+          <label for="band1">Gain Band 1</label><input type="text" placeholder="Gain Band 1" id="band1">
+          <label for="Kp1">Kp 1</label><input type="text" placeholder="Kp 1" id="Kp1">
+          <label for="Ki1">Ki 1</label><input type="text" placeholder="Ki 1" id="Ki1">
+          <label for="Kd1">Kd 1</label><input type="text" placeholder="Kd 1" id="Kd1">
+          <label for="band2">Gain Band 2</label><input type="text" placeholder="Gain Band 2" id="band2">
+          <label for="Kp2">Kp 2</label><input type="text" placeholder="Kp 2" id="Kp2">
+          <label for="Ki2">Ki 2</label><input type="text" placeholder="Ki 2" id="Ki2">
+          <label for="Kd2">Kd 2</label><input type="text" placeholder="Kd 2" id="Kd2">
+          <label for="ALPHA">Derivative Alpha</label><input type="text" placeholder="Derivative Alpha" id="ALPHA">
+          <label for="IMIN">Min Integral</label><input type="text" placeholder="Min Integral" id="IMIN">
+          <label for="IMAX">Max Integral</label><input type="text" placeholder="Max Integral" id="IMAX">
+          <button class="button button-primary">Apply</button>
+        </fieldset>
+      </form>
+    </section>
+  </main>
+  <script src="pid.js"></script>
+</body>
+
+</html>
