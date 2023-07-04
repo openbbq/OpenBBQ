@@ -71,10 +71,10 @@ bool Config::load()
     }
 
     // Copy values from the JsonDocument to the Config
-    BROKER_ADDR = doc["BROKER_ADDR"];
-    BROKER_PORT = doc["BROKER_PORT"];
-    BROKER_USERNAME = doc["BROKER_USERNAME"];
-    BROKER_PASSWORD = doc["BROKER_PASSWORD"];
+    BROKER_ADDR = doc["BROKER_ADDR"] | "";
+    BROKER_PORT = doc["BROKER_PORT"] | 1883;
+    BROKER_USERNAME = doc["BROKER_USERNAME"] | "mqtt";
+    BROKER_PASSWORD = doc["BROKER_PASSWORD"] | "";
 
     for (auto const &section : _sections)
     {
