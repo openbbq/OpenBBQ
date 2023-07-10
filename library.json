@@ -14,7 +14,6 @@
         }
     ],
     "dependencies": {
-        "Display_Interface": "https://github.com/openbbq/Display_Interface.git",
         "adafruit/Adafruit MAX31856 library": "^1.2.5",
         "adafruit/Adafruit ILI9341": "^1.5.12",
         "adafruit/Adafruit GFX Library": "^1.11.5",

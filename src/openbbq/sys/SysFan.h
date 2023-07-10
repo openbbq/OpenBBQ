@@ -16,7 +16,9 @@ public:
 
     void write(uint32_t time);
 
-    WithRange<WithConnect<ControlSignal<float>>> power = {0, 0, 100};
+    WithRange<WithConnect<ControlSignal<float>>> signal = {0, 0, 100};
+    WithRange<ControlSignal<float>> factor = {1, 0, 1};
+    ControlSignal<float> output = {0};
 
 private:
     static void callback(SysFan *self) { self->write(millis()); }

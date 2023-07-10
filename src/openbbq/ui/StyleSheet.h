@@ -11,11 +11,7 @@ namespace bbq::ui
     {
     public:
         StylePtr Default;
-        StylePtr Title;
-
-        StylePtr SmallText;
-
-        StylePtr SmallMonospace;
-        StylePtr LargeMonospace;
+        StylePtr Large;
+        StylePtr System;
     };
 }

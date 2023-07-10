@@ -222,7 +222,7 @@ void setup()
       TS_Point(4050, 3900, 0), // (240,0)
       TS_Point(580, 200, 0));  // (0,320)
 
-  if (!gui.begin(bbq::ui::ThermostatPage::ViewModel{
+  if (!gui.begin(bbq::ui::ThermostatList::ViewModel{
           {"Fan", fan},
           {"Pit", grillThermostat},
           {"#1", food1Thermostat},
@@ -294,7 +294,7 @@ void setup()
   pid._processValue.connect(grillThermostat.current);
 
   // connect fan to pid
-  fan.power.connect(pid._out);
+  fan.signal.connect(pid._out);
 
   // IoT "climate" for grill
   _cyberq::cook.CurrentTemperature.connect(grillThermostat.current);
@@ -365,7 +365,7 @@ void loop()
     // TODO(loudej) need a signal mux that changes the input based on mode so fan isn't always wired to pid out
     if (grillThermostat.mode.value() == "heat")
     {
-      if (fan.power > 0)
+      if (fan.signal > 0)
       {
         grillThermostat.action = "heating";
       }

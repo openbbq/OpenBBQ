@@ -8,22 +8,8 @@
 #include <display/ui/Button.h>
 
 #include <OpenBBQ.h>
-#include <openbbq/ui/NavBar.h>
-#include <openbbq/ui/ThermostatPage.h>
-#include <openbbq/ui/PageBar.h>
-
-#include <Font_FTO.h>
-#include <Outlines/Roboto-Light-9.h>
-#include <Outlines/Roboto-Light-24.h>
-
-#include <Font_GFX.h>
-#include <Fonts/FreeSans9pt7b.h>
-#include <Fonts/FreeSans12pt7b.h>
-#include <Fonts/FreeSans18pt7b.h>
-#include <Fonts/FreeSansBold12pt7b.h>
-#include <Fonts/FreeMono12pt7b.h>
-#include <Fonts/FreeMono24pt7b.h>
-#include <Fonts/TomThumb.h>
+#include <openbbq/ui/Resources.h>
+#include <openbbq/ui/App.h>
 
 #include <Adafruit_ILI9341.h>
 
@@ -36,47 +22,24 @@ SysDisplay::SysDisplay(Interface *interface)
 {
 }
 
-bool SysDisplay::begin(const ThermostatPage::ViewModel &model)
+using material_color_utilities::Argb;
+using material_color_utilities::ArgbFromRgb;
+using material_color_utilities::MaterialDarkColorScheme;
+using material_color_utilities::MaterialLightColorScheme;
+using material_color_utilities::Scheme;
+
+bool SysDisplay::begin(const App::ViewModel &model)
 {
-    FontPtr defaultFont = Font_FTO::create(&roboto::light9::font, 1);
-
-    FontPtr smallFont = defaultFont;
-
-    FontPtr smallMonoFont = defaultFont;
-    FontPtr largeMonoFont = Font_FTO::create(&roboto::light24::font, 1);
+    auto &res = getResources();
+    auto scheme = std::make_shared<Scheme>(MaterialLightColorScheme(0x378b00));
 
     StyleSheet ss;
-    ss.Default = Style::create(ILI9341_WHITE, ILI9341_BLACK, defaultFont);
-    ss.Title = Style::create(ILI9341_WHITE, ILI9341_BLACK, defaultFont);
+    ss.Default = Style::create(scheme, SchemeColors::Application, res.Default);
+    ss.Large = Style::create(scheme, SchemeColors::Application, res.Large);
+    ss.System = Style::create(scheme, SchemeColors::System, res.Default);
 
-    ss.SmallText = Style::create(ILI9341_WHITE, ILI9341_BLACK, smallFont);
-
-    ss.SmallMonospace = Style::create(ILI9341_WHITE, ILI9341_BLACK, smallMonoFont);
-    ss.LargeMonospace = Style::create(ILI9341_WHITE, ILI9341_BLACK, largeMonoFont);
-
-    StylePtr untoggledButton = Style::create(ILI9341_WHITE, ILI9341_DARKGREY, defaultFont);
-    StylePtr pressedButton = Style::create(ILI9341_LIGHTGREY, ILI9341_BLACK, defaultFont);
-    StylePtr toggledButton = Style::create(ILI9341_WHITE, ILI9341_BLACK, defaultFont);
-
-    auto screen = _interface->begin<Screen>(ss.Default);
-    auto nav = NavBar::create(ss.Title, pressedButton, "Open BBQ");
-    auto main = Background::create(Style::create(ILI9341_CYAN));
-    auto select = PageBar::create(untoggledButton, pressedButton, toggledButton);
-    screen->addTop(nav);
-//    screen->addTop<Solid>(Style::create(ILI9341_LIGHTGREY), Size(2, 2));
-    screen->addBottom(select, 40);
-    screen->addFill(main);
-
-    // select->addRight(Button::create(untoggledButton, pressedButton, toggledButton, "E"), 30);
-    // select->addRight(Button::create(untoggledButton, pressedButton, toggledButton, "D"), 30);
-    // select->addRight(Button::create(untoggledButton, pressedButton, toggledButton, "C"), 30);
-    // select->addRight(Button::create(untoggledButton, pressedButton, toggledButton, "B"), 30);
-    // select->addRight(Button::create(untoggledButton, pressedButton, toggledButton, "A"), 30);
-
-    main->addFill(ThermostatPage::create(ss, model));
-
-    // _interface->screen(screen);
-
+    auto screen = _interface->begin<App>(ss.Default, model);
+    screen->build(ss);
     return true;
 }
 

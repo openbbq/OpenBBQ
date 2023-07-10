@@ -23,10 +23,7 @@ bool SysFan::begin(uint32_t periodMs, uint32_t backgroundMs)
 
 bool SysFan::loop(uint32_t time)
 {
-    if (_pin == -1)
-    {
-        return false;
-    }
+    output = signal * factor;
 
     if (_backgroundMs == 0)
     {
@@ -48,7 +45,7 @@ void SysFan::write(uint32_t time)
     }
 
     uint32_t sample = time % _periodMs;
-    uint32_t outputMs = uint32_t(_periodMs * power / 100);
+    uint32_t outputMs = uint32_t(_periodMs * output / 100);
 
     if (sample < outputMs)
     {
