@@ -350,6 +350,17 @@ bool SysWiFi::DisplayRequestHandler::handle(WebServer &server, HTTPMethod reques
         return false;
     }
 
+    String x = server.arg("x");
+    String y = server.arg("y");
+    if (x != "" && y != "")
+    {
+        display::Point pt(x.toInt(), y.toInt());
+        _interface->touchDown(pt);
+        _interface->touchMove(pt);
+        _interface->touchUp(pt);
+        _interface->loop();
+    }
+
     display::Size sz = _interface->size();
     uint16_t width = sz.width();
     uint16_t height = sz.height();
