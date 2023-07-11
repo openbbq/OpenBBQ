@@ -26,7 +26,7 @@ public:
     }
     bool loop(int32_t timeMs)
     {
-        if (current.value() == 0)
+        if (current.value() == 0 || faults.value() != 0)
         {
             return false;
         }
@@ -37,6 +37,8 @@ public:
     WithConfig<ControlSignal<float>> temperature = {70};
     WithConfig<ControlSignal<String>> mode = {"off"};
     WithConnect<ControlSignal<float>> current = {0};
+    WithConnect<ControlSignal<int>> faults = {0};
+    WithConnect<ControlSignal<String>> fault = {""};
     ControlSignal<String> action = {"idle"};
 
     ControlLowPassFilter smoothed;

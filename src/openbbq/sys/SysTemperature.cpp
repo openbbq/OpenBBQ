@@ -43,8 +43,38 @@ bool SysTemperature::read()
         return false;
     }
 
-    auto valueC = _max31856.readThermocoupleTemperature();
-    output = (valueC * (212 - 32)) / 100 + 32;
+    uint8_t f = _max31856.readFault();
+    if (f & MAX31856_FAULT_OPEN)
+    {
+        fault = "open";
+    }
+    else if (f & MAX31856_FAULT_OVUV)
+    {
+        fault = "volts";
+    }
+    else if (f & (MAX31856_FAULT_TCRANGE | MAX31856_FAULT_CJRANGE))
+    {
+        fault = "range";
+    }
+    else if (f & (MAX31856_FAULT_TCHIGH | MAX31856_FAULT_CJHIGH))
+    {
+        fault = "high";
+    }
+    else if (f & (MAX31856_FAULT_TCLOW | MAX31856_FAULT_CJLOW))
+    {
+        fault = "low";
+    }
+    else
+    {
+        fault = "";
+    }
+
+    faults = f;
+    if (f==0)
+    {
+        auto valueC = _max31856.readThermocoupleTemperature();
+        output = (valueC * (212 - 32)) / 100 + 32;
+    }
     return true;
 }
 

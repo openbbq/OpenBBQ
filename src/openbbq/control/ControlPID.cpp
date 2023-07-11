@@ -35,6 +35,11 @@ bool ControlPID::loop(int32_t timeMs)
 
     _setpoint.loop(timeMs);
 
+    if (_processValueFaults != 0)
+    {
+        return false;
+    }
+
     float error = _setpoint.output - _processValue;
 
     // gain scheduling
