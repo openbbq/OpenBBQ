@@ -57,14 +57,23 @@ namespace bbq::ui
             current->text(String(model.thermostat.smoothed.output.value(), 1));
             setpoint->text(String(model.thermostat.temperature.value(), 0) + " F");
 
-            String deltaText = String(model.thermostat.rate.output.value(), 1) + "/m";
-            if (deltaText[0] == '-')
+            if (model.thermostat.faults.value() == 0)
             {
-                delta->text(deltaText);
+                String deltaText = String(model.thermostat.rate.output.value(), 1) + "/m";
+                if (deltaText[0] == '-')
+                {
+                    delta->text(deltaText);
+                }
+                else
+                {
+                    delta->text("+" + deltaText);
+                }
             }
             else
             {
-                delta->text("+" + deltaText);
+                // use delta to show fault string, which enables temp value to
+                // continue to display data
+                delta->text(model.thermostat.fault.value());
             }
         }
 
@@ -119,7 +128,7 @@ namespace bbq::ui
             }
         }
 
-        bool clickHandler(const WindowPtr& ptr) override
+        bool clickHandler(const WindowPtr &ptr) override
         {
             if (ptr == enabled)
             {

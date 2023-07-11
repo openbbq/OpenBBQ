@@ -43,10 +43,56 @@ bool SysTemperature::read()
         return false;
     }
 
-    auto valueC = _max31856.readThermocoupleTemperature();
-    output = (valueC * (212 - 32)) / 100 + 32;
+    uint8_t f = _max31856.readFault();
+    if (f & MAX31856_FAULT_OPEN)
+    {
+        fault = "open";
+    }
+    else if (f & MAX31856_FAULT_OVUV)
+    {
+        fault = "volts";
+    }
+    else if (f & (MAX31856_FAULT_TCRANGE | MAX31856_FAULT_CJRANGE))
+    {
+        fault = "range";
+    }
+    else if (f & (MAX31856_FAULT_TCHIGH | MAX31856_FAULT_CJHIGH))
+    {
+        fault = "high";
+    }
+    else if (f & (MAX31856_FAULT_TCLOW | MAX31856_FAULT_CJLOW))
+    {
+        fault = "low";
+    }
+    else
+    {
+        fault = "";
+    }
+
+    faults = f;
+    if (f==0)
+    {
+        auto valueC = _max31856.readThermocoupleTemperature();
+        output = (valueC * (212 - 32)) / 100 + 32;
+    }
     return true;
 }
+
+#define MAX31856_FAULT_CJRANGE \
+    0x80 ///< Fault status Cold Junction Out-of-Range flag
+#define MAX31856_FAULT_TCRANGE \
+    0x40 ///< Fault status Thermocouple Out-of-Range flag
+#define MAX31856_FAULT_CJHIGH \
+    0x20                          ///< Fault status Cold-Junction High Fault flag
+#define MAX31856_FAULT_CJLOW 0x10 ///< Fault status Cold-Junction Low Fault flag
+#define MAX31856_FAULT_TCHIGH \
+    0x08 ///< Fault status Thermocouple Temperature High Fault flag
+#define MAX31856_FAULT_TCLOW \
+    0x04 ///< Fault status Thermocouple Temperature Low Fault flag
+#define MAX31856_FAULT_OVUV \
+    0x02 ///< Fault status Overvoltage or Undervoltage Input Fault flag
+#define MAX31856_FAULT_OPEN \
+    0x01 ///< Fault
 
 void SysTemperature::callback(SysTemperature *self)
 {

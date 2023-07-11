@@ -22,6 +22,13 @@ public:
     bool read();
 
     ControlSignal<float> output = 0;
+    
+    // native device bits
+    ControlSignal<int> faults = {0};
+
+    // most significant short error
+    ControlSignal<String> fault = {""};
+
 
 private:
     static void callback(SysTemperature *self);

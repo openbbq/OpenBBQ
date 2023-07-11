@@ -20,6 +20,7 @@ public:
     // input
     ControlLowPassFilter _setpoint;
     WithConnect<ControlSignal<float>> _processValue = 0;
+    WithConnect<ControlSignal<int>> _processValueFaults = 0;
 
     // parameters
     WithConfig<ControlSignal<float>> band1 = 0;
