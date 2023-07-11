@@ -78,22 +78,6 @@ bool SysTemperature::read()
     return true;
 }
 
-#define MAX31856_FAULT_CJRANGE \
-    0x80 ///< Fault status Cold Junction Out-of-Range flag
-#define MAX31856_FAULT_TCRANGE \
-    0x40 ///< Fault status Thermocouple Out-of-Range flag
-#define MAX31856_FAULT_CJHIGH \
-    0x20                          ///< Fault status Cold-Junction High Fault flag
-#define MAX31856_FAULT_CJLOW 0x10 ///< Fault status Cold-Junction Low Fault flag
-#define MAX31856_FAULT_TCHIGH \
-    0x08 ///< Fault status Thermocouple Temperature High Fault flag
-#define MAX31856_FAULT_TCLOW \
-    0x04 ///< Fault status Thermocouple Temperature Low Fault flag
-#define MAX31856_FAULT_OVUV \
-    0x02 ///< Fault status Overvoltage or Undervoltage Input Fault flag
-#define MAX31856_FAULT_OPEN \
-    0x01 ///< Fault
-
 void SysTemperature::callback(SysTemperature *self)
 {
     if (self->read())
