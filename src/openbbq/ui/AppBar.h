@@ -1,60 +1,33 @@
 #pragma once
 
-//#include <openbbq/display/widget/Button.h>
+// #include <openbbq/display/widget/Button.h>
 #include <display/ui/Background.h>
 #include <display/ui/Label.h>
+#include <openbbq/control/ControlSignal.h>
 
 namespace bbq::ui
 {
     using namespace display;
     using namespace display::ui;
 
-    // class NavButton : public Button
-    // {
-    // public:
-    //     using Button::Button; // inherits constructors
-
-    //     Size measureHandler(const Size &available) const override
-    //     {
-    //         return Size(available.height() * 1.2, available.height());
-    //     };
-
-    //     void drawHandler(DrawContext *dc) override
-    //     {
-    //         Rect rc = content();
-    //         StylePtr s = activeStyle();
-
-    //         int barHeight = (rc.height() - 2) / 7;
-    //         Rect barsBox(Size(barHeight * 6, barHeight * 5));
-    //         barsBox = barsBox.offset((rc.size() - barsBox.size()) / 2);
-
-    //         Rect bar(barsBox.left(), barsBox.top(), barsBox.right(), barsBox.top() + barHeight);
-    //         for (int i = 0; i != 3; ++i)
-    //         {
-    //             dc->draw(bar, s->foreground());
-    //             dc->exclude(bar);
-    //             bar = bar.offset(Point(0, barHeight * 2));
-    //         }
-
-    //         // TODO - the exclude above has a bug - it's not letting background draw between or under bars
-    //         dc->draw(rc, s->background());
-    //         dc->exclude(rc);
-    //     }
-    // };
-
-
     class AppBar : public Background
     {
     public:
-        using Background::Background; // inherits constructors
-
-        static WindowPtr create(StylePtr style, const String &text)
+        struct ViewModel
         {
-            auto nav = std::make_shared<AppBar>(style);
-            // nav->_menu = std::make_shared<NavButton>(style, pressedStyle, "=");
-            nav->_title = std::make_shared<Label>(style, text, DrawContext::LEFT);
+            ControlSignal<float> &battery;
+        };
 
-            //nav->addLeft(nav->_menu, -1);
+        AppBar(StylePtr style, const ViewModel &vm) : Background(style), model(vm) {}
+
+        static WindowPtr create(StylePtr style, const String &text, const ViewModel &vm)
+        {
+            auto nav = std::make_shared<AppBar>(style, vm);
+            nav->_title = std::make_shared<Label>(style, text, DrawContext::LEFT);
+            nav->_battery = Label::create(style, "", DrawContext::RIGHT);
+
+            uint16_t batteryWidth = style->font()->measure("0.00v").width();
+            nav->addRight(nav->_battery, batteryWidth);
             nav->addFill(nav->_title);
             return nav;
         }
@@ -62,10 +35,19 @@ namespace bbq::ui
         Size measureHandler(const Size &available) const override
         {
             return _title->measureHandler(available) + Size(0, 4);
-        };
+        }
+
+        void loopHandler() override
+        {
+            Background::loopHandler();
+
+            _battery->text(String(model.battery.value(), 2)+"v");
+        }
 
     private:
-        //std::shared_ptr<Button> _menu;
+        ViewModel model;
+        // std::shared_ptr<Button> _menu;
         std::shared_ptr<Label> _title;
+        std::shared_ptr<Label> _battery;
     };
 }

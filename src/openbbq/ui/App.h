@@ -13,6 +13,7 @@ namespace bbq::ui
     public:
         struct ViewModel
         {
+            AppBar::ViewModel appBar;
             int active;
             ThermostatList::ViewModel thermostats;
         };
@@ -22,7 +23,7 @@ namespace bbq::ui
         {
             ss_ = ss;
 
-            addTop(appBar = AppBar::create(ss.System, "Open BBQ"));
+            addTop(appBar = AppBar::create(ss.System, "Open BBQ", model.appBar));
             addBottom(navigationBar = NavigationBar::create(ss.System), 40);
             addFill(main = std::make_shared<ScrollWindow>(ss.Default));
 
