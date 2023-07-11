@@ -8,6 +8,7 @@
 #include <display/ui/Solid.h>
 #include <display/ui/IconButton.h>
 
+#include <openbbq/control/ControlSignal.h>
 #include <openbbq/control/ControlThermostat.h>
 #include <openbbq/sys/SysFan.h>
 
@@ -94,6 +95,7 @@ namespace bbq::ui
         {
             String caption;
             SysFan &fan;
+            ControlSignal<String>& mode;
         };
 
         FanListItem(StylePtr style, const ViewModel &vm) : Background(style), model(vm) {}
@@ -118,7 +120,7 @@ namespace bbq::ui
         {
             Background::loopHandler();
             current->text(String(model.fan.signal.value(), 1) + " %");
-            if (model.fan.factor.value() == 0)
+            if (model.mode.value() == "off")
             {
                 enabled->toggled(false);
             }
@@ -132,13 +134,13 @@ namespace bbq::ui
         {
             if (ptr == enabled)
             {
-                if (model.fan.factor.value() == 0)
+                if (model.mode.value() == "off")
                 {
-                    model.fan.factor = 1;
+                    model.mode.value("heat");
                 }
                 else
                 {
-                    model.fan.factor = 0;
+                    model.mode.value("off");
                 }
                 return true;
             }
