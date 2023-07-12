@@ -14,7 +14,7 @@ public:
         ConfigObject::add("mode", &mode);
         ConfigObject::add("temp", &temperature);
 
-        smoothed.alpha = 10;
+        smoothed.alpha = 20;
         smoothed.signal.connect(current);
         rate.signal.connect(smoothed.output);
     }

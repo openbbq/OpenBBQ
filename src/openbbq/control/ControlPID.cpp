@@ -32,14 +32,12 @@ bool ControlPID::loop(int32_t timeMs)
     {
         return false;
     }
-
-    _setpoint.loop(timeMs);
-
     if (_processValueFaults != 0)
     {
         return false;
     }
 
+    _setpoint.loop(timeMs);
     float error = _setpoint.output - _processValue;
 
     // gain scheduling
@@ -75,19 +73,23 @@ bool ControlPID::loop(int32_t timeMs)
     else
     {
         // fixed period --- using constant time delta for simplicity.
-        float timeDelta = _period.ms() / 60000.0;
+        float secondsDelta = _period.ms() / 1000.0;
+        float minutesDelta = secondsDelta / 60.0;
         float errorDelta = error - _errorLast;
 
-        _proportional = Kp * error;
-        _integral = constrain(Ki * (error * timeDelta) + _integralLast, float(_integralMin), float(_integralMax));
-        _derivative = Kd * errorDelta / timeDelta;
-
-        // low-pass filter on derivative
-        for (int i = 0; i != 3; i++)
+        if (fabs(errorDelta / secondsDelta) < 15) // breaker ignores 15 degrees/second or more
         {
-            _derivativeFilters[i].signal = _derivative.value();
-            _derivativeFilters[i].loop(timeMs);
-            _derivative = _derivativeFilters[i].output.value();
+            _proportional = Kp * error;
+            _integral = constrain(Ki * (error * minutesDelta) + _integralLast, float(_integralMin), float(_integralMax));
+            _derivative = Kd * errorDelta / minutesDelta;
+
+            // low-pass filter on derivative
+            for (int i = 0; i != 3; i++)
+            {
+                _derivativeFilters[i].signal = _derivative.value();
+                _derivativeFilters[i].loop(timeMs);
+                _derivative = _derivativeFilters[i].output.value();
+            }
         }
     }
 
