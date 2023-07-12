@@ -5,6 +5,8 @@
 #include <vector>
 #include <initializer_list>
 
+#include <StreamUtils/Prints/BufferingPrint.hpp>
+
 #include <PubSubClient.h>
 #include <ArduinoJson.h>
 #include <WString.h>
@@ -79,9 +81,10 @@ public:
 
     if (_client->beginPublish(topic.c_str(), measureJson(payload), true))
     {
-      // WriteBufferingPrint bufferedClient(_client, 32);
+      StreamUtils::BufferingPrint bufferedWifiClient(*_client, 128);
+      serializeJson(payload, bufferedWifiClient);
+      bufferedWifiClient.flush();
 
-      serializeJson(payload, *_client);
       _client->endPublish();
       return true;
     }

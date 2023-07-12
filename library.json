@@ -18,6 +18,7 @@
         "adafruit/Adafruit ILI9341": "^1.5.12",
         "adafruit/Adafruit GFX Library": "^1.11.5",
         "bblanchon/ArduinoJson": "^6.21.2",
+        "bblanchon/StreamUtils": "^1.7.3",
         "joaolopesf/RemoteDebug": "^2.1.2",
         "knolleary/PubSubClient": "^2.8",
         "paulstoffregen/XPT2046_Touchscreen": "",
