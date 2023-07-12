@@ -5,6 +5,7 @@
 #include "AppBar.h"
 #include "NavigationBar.h"
 #include "ThermostatList.h"
+#include "TuneView.h"
 
 namespace bbq::ui
 {
@@ -16,6 +17,7 @@ namespace bbq::ui
             AppBar::ViewModel appBar;
             int active;
             ThermostatList::ViewModel thermostats;
+            TuneView::ViewModel tune;
         };
         App(Interface *interface, StylePtr style, const ViewModel &vm) : Screen(interface, style), model(vm) {}
 
@@ -58,6 +60,7 @@ namespace bbq::ui
                 ThermostatList::create(ss_, model.thermostats)->parent(main);
                 break;
             case NavigationBar::TUNE:
+                TuneView::create(ss_.Default, model.tune)->parent(main);
                 break;
             case NavigationBar::SETTINGS:
                 break;

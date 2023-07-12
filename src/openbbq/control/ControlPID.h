@@ -37,6 +37,12 @@ public:
     WithConfig<ControlSignal<float>> _integralMin = 0;
 
     // results
+    ControlSignal<float> _error = 0;
+    ControlSignal<float> _band = 0;
+    ControlSignal<float> _Kp = 0;
+    ControlSignal<float> _Ki = 0;
+    ControlSignal<float> _Kd = 0;
+
     ControlSignal<float> _proportional = 0;
     ControlSignal<float> _integral = 0;
     ControlSignal<float> _derivative = 0;

@@ -55,6 +55,12 @@ bool ControlPID::loop(int32_t timeMs)
     float Ki = gain * Ki2 + (1 - gain) * Ki1;
     float Kd = gain * Kd2 + (1 - gain) * Kd1;
 
+    _error = error;
+    _band = gain + 1;
+    _Kp = Kp;
+    _Ki = Ki;
+    _Kd = Kd;
+
     if (_hasLast == false)
     {
         _proportional = Kp * error;
